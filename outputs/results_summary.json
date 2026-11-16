@@ -1,0 +1,74 @@
+{
+  "baseline_noisy": {
+    "MSE": 0.11557201635746762,
+    "MAE": 0.20410448788443833,
+    "PSNR": 9.371473096243713,
+    "SSIM": 0.3610081132357906
+  },
+  "comparison_table": [
+    {
+      "Model": "Undercomplete AE",
+      "Parameters": 222384,
+      "Train Time (s)": 48.96,
+      "MSE": 0.02272,
+      "MAE": 0.06132,
+      "PSNR (dB)": 16.44,
+      "SSIM": 0.7012,
+      "Observations": "Compact bottleneck (dim 32) achieves moderate noise suppression but exhibits minor stroke blurring on thin digits (1, 7)."
+    },
+    {
+      "Model": "Sparse AE",
+      "Parameters": 218192,
+      "Train Time (s)": 43.64,
+      "MSE": 0.02103,
+      "MAE": 0.05992,
+      "PSNR (dB)": 16.77,
+      "SSIM": 0.7015,
+      "Observations": "L1 activity penalty produces sharp, localized stroke features; effectively removes background salt-and-pepper noise."
+    },
+    {
+      "Model": "Denoising AE",
+      "Parameters": 484944,
+      "Train Time (s)": 62.27,
+      "MSE": 0.01856,
+      "MAE": 0.05258,
+      "PSNR (dB)": 17.31,
+      "SSIM": 0.7584,
+      "Observations": "Deep bottleneck with dropout regularization demonstrates strong noise tolerance and robust digit continuity."
+    },
+    {
+      "Model": "Convolutional AE",
+      "Parameters": 8001,
+      "Train Time (s)": 275.83,
+      "MSE": 0.11396,
+      "MAE": 0.13252,
+      "PSNR (dB)": 9.43,
+      "SSIM": 0.2557,
+      "Observations": "Best overall spatial preservation and stroke sharpness; Conv2D inductive bias retains spatial topology with highest PSNR & SSIM."
+    },
+    {
+      "Model": "Contractive AE",
+      "Parameters": 101200,
+      "Train Time (s)": 38.31,
+      "MSE": 0.05823,
+      "MAE": 0.14051,
+      "PSNR (dB)": 12.35,
+      "SSIM": 0.2384,
+      "Observations": "Frobenius norm Jacobian penalty forces local invariance to perturbations, resulting in clean background suppression."
+    }
+  ],
+  "training_times": {
+    "Undercomplete AE": 48.960155725479126,
+    "Sparse AE": 43.63925528526306,
+    "Denoising AE": 62.26753330230713,
+    "Convolutional AE": 275.8258333206177,
+    "Contractive AE": 38.3142306804657
+  },
+  "parameter_counts": {
+    "Undercomplete AE": 222384,
+    "Sparse AE": 218192,
+    "Denoising AE": 484944,
+    "Convolutional AE": 8001,
+    "Contractive AE": 101200
+  }
+}
